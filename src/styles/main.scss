@@ -1,0 +1,135 @@
+@import '~@blueprintjs/core/src/blueprint.scss';
+
+$mainfont: 'Montserrat', sans-serif;
+
+body {
+   background: rgb(0,0,4);
+   color: $light-gray1;
+   font-family: $mainfont;
+   font-weight: 400;
+   user-select: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   font-weight: 900;
+}
+
+/* OVERWRITING BP3 */
+.bp3-dialog, .bp3-dialog-header {
+   background: $black !important;
+}
+
+.bp3-dialog.bp3-dark, .bp3-dark .bp3-dialog {
+   box-shadow: none;
+}
+
+.bp3-overlay-backdrop {
+   background: rgba(0,0,4,.95) !important;
+}
+
+.bp3-dialog-header .bp3-heading {
+   color: white;
+   font-size: 1rem;
+   margin-left: 1em;
+   letter-spacing: .1em;
+   text-transform: uppercase;
+}
+
+h4.bp3-heading, .bp3-running-text h4 {
+   font-size: calc(6px + 1vw);
+}
+
+// Stops users from being able to highlight the non-ideal-state element.
+.bp3-non-ideal-state {
+   user-select: none;
+}
+
+// Stops non-ideal-state elements from wrapping text during animation.
+.bp3-non-ideal-state:empty::before, .bp3-non-ideal-state > :last-child, .bp3-non-ideal-state::before, .bp3-non-ideal-state > * {
+    white-space: nowrap;
+}
+
+// Fixes icons on input-group, since we're using font-awesome instead of blueprint icons.
+.input-icon {
+    font-size: 1.25em;
+    position: absolute;
+    margin: .35em .5em;
+}
+
+.tags {
+    margin: .25em;
+}
+
+.header {
+   background: $black !important;
+   transition: .25s ease all;
+   &.hidden {
+      margin-top: -50px;
+   }
+   &--logo {
+      @media screen and (max-width: 515px){
+         display: none;
+      }
+      h1 {
+         font-size: 1rem;
+         text-transform: uppercase;
+         small {
+            font-weight: 300;
+            opacity: .5;
+         }
+      }
+   }
+}
+
+#overlay-trigger {
+   z-index: 2;
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   padding-top: 50px;
+   cursor: pointer;
+    .overlay-trigger--focal {
+       display: flex;
+       flex-grow: 1;
+       justify-content: center;
+       align-items: center;
+       box-sizing: border-box;
+       height: 100%;
+       transition: .25s ease all;
+       border-left: 1px solid rgba(0,0,0,0);
+   }
+}
+
+.player_wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;   
+}
+
+.player {
+   flex-grow: 1;
+   height: 100%;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   overflow: hidden;
+
+   .player_image {
+      margin: 0 auto;
+   }
+}
